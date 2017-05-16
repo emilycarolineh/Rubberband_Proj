@@ -41,23 +41,33 @@ public class PegBand
         }   
      }
      
-     public int[] improverOne(int[] position, int[][] adjacencyList)
+ public int[] improverOne(int[] position, int[][] adjacencyList)
      {
         //Tracks number of connections for each post in position array.
         int[] connectionCount = new int[position.length];
-
-        //Stores post # with highest number of connections.
-        int post = 0;
-
+         
+        //Add the number of connections for each post to the connectionCount array.
         for(int i = 0; i < adjacencyList.length; i++)
         {
             for(int j = 0; j < adjacencyList[i].length; j++)
             {
                 connectionCount[i] += adjacencyList[i].length;
-
-                //add other instances of each element to connections count here.............*********
+                connectionCount[adjacenyList[i][j]]++;
             }
         }
+
+        //Stores the highest connection count.
+        int highestConCount = 0;
+        //Stores post # with highest number of connections.
+        int post = 0;
+
+        //Find the post with the highest connection count and save it.
+        for(int i = 0; i < connectionCount.length; i++)
+        {
+            if(connectionCount[i] > highestConCount)
+                highestConCount = i;
+        }
+     } 
 
         //Stores the highest connection count.
         int highestConCount = 0;
