@@ -38,7 +38,9 @@ public class PegBand
                 else
                     totalCost += (position[secondPeg] - position[firstPeg]);
             } 
-        }   
+        }  
+        
+        return totalCost;
      }
      
  public int[] improverOne(int[] position, int[][] adjacencyList)
